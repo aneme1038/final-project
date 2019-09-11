@@ -2,7 +2,8 @@
   <div id="app">
     <Header />
     <AddTask v-on:add-task="addTask" />
-    <Todos v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
+    <UpdateTask v-on:update-task="updateTask" />
+    <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import UpdateTask from './components/UpdateTask';
 import axios from 'axios';
 
 export default {
@@ -17,7 +19,8 @@ export default {
   components: {
     Header,
     Tasks,
-    AddTask
+    AddTask,
+    UpdateTask
   },
   data() {
     return {
@@ -37,6 +40,15 @@ export default {
         completed
       })
         .then(response => this.tasks = [...this.tasks, response.data])
+        .catch(error => console.log(error))
+    },
+    updateTask(updatedTask) {
+      const {title, completed} = updatedTask;
+      axios.post('', {
+        title,
+        completed
+      })
+        .then(repsonse => this.tasks = [...this.tasks, response.data])
         .catch(error => console.log(error))
     }
   },
