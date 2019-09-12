@@ -1,18 +1,22 @@
 <template>
   <div>
+    <!--Needs a unique key due to some lint error. Had to look this up. The key is for the individual id's and we have to bind it. Documentation found at https://vuejs.org/v2/guide/list.html -->
     <div v-bind:key="task.id" v-for="task in tasks">
-      <TaskItem v-bind:task="task" v-on:del-task="$emit('del-task', task.id)"/>
+      <TaskObject v-bind:task="task" v-on:delete-task="$emit('delete-task', task.id)"/>
     </div>
   </div>
 </template>
 
 <script>
-  import TaskItem from './TaskItem.vue';
+  import TaskObject from './TaskObject.vue';
   export default {
+    //name for this file
     name: "Tasks",
+    //associated components
     components: {
-      TaskItem
+      TaskObject
     },
+    //use tasks for above template
     props: ["tasks"]
   }
 </script>

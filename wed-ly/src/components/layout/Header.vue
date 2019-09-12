@@ -11,5 +11,11 @@
 </script>
 
 <style scoped>
-  
+  h1 {
+
+  }
+  header {
+    background-color: #40312C;
+    color: #F0F0F2;
+  }
 </style>

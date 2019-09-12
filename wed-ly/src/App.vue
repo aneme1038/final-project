@@ -3,7 +3,7 @@
     <Header />
     <AddTask v-on:add-task="addTask" />
     <UpdateTask v-on:update-task="updateTask" />
-    <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask"/>
+    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask"/>
   </div>
 </template>
 
@@ -24,23 +24,41 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [
+        {
+          id: 1,
+          title: "Task Number 1",
+          completed: false
+        },
+        {
+          id: 2,
+          title: "Task Number 2",
+          completed: true
+        },
+        {
+          id: 3,
+          title: "Task Number 3",
+          completed: false
+        }
+      ]
     }
   },
   methods: {
     deleteTask(id) {
-      axios.delete('')
-        .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
-        .catch(error => console.log(error))
+      // axios.delete('')
+        // .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
+        // .catch(error => console.log(error))
+        this.tasks = this.tasks.filter(task => task.id !== id);
     },
     addTask(newTask) {
-      const {title, completed} = newTask;
-      axios.post('', {
-        title,
-        completed
-      })
-        .then(response => this.tasks = [...this.tasks, response.data])
-        .catch(error => console.log(error))
+      // const {title, completed} = newTask;
+      // axios.post('', {
+      //   title,
+      //   completed
+      // })
+      //   .then(response => this.tasks = [...this.tasks, response.data])
+      //   .catch(error => console.log(error))
+      this.tasks = [...this.tasks, newTask]
     },
     updateTask(updatedTask) {
       const {title, completed} = updatedTask;
@@ -63,5 +81,16 @@ export default {
 <!-- with no 'scoped' means this will apply to all files -->
 
 <style>
-
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Helvetica;
+    line-height: 1.4;
+  }
+  .btn {
+    background-color: #D9D1D0;
+    color: #735F5D;
+  }
 </style>

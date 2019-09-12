@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="addTask">
-      <input type="text" v-model="title" name="title" placeholder="Add Task..." />
+      <input type="text" v-model="title" name="title" placeholder="Add A Task" />
       <input type="submit" value="Submit" class="btn">
     </form>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 //if you don't have backend, this uuid will create a unique id for entries on frontend
-  // import uuid from 'uuid';
+  import uuid from 'uuid';
   export default {
     name: "AddTask",
     data() {
@@ -21,10 +21,11 @@
       addTask(e) {
         e.preventDefault();
         const newTask = {
+          id: uuid.v4(),
           title: this.title,
           completed: false
         }
-        // Send up to parent by emitting an event
+        // Send up to App.vue by emitting an event
         this.$emit('add-task', newTask);
 
         this.title = '';
