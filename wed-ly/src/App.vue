@@ -2,7 +2,6 @@
   <div id="app">
     <Header />
     <AddTask v-on:add-task="addTask" />
-    <UpdateTask v-on:update-task="updateTask" />
     <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask"/>
   </div>
 </template>
@@ -60,21 +59,12 @@ export default {
       //   .catch(error => console.log(error))
       this.tasks = [...this.tasks, newTask]
     },
-    updateTask(updatedTask) {
-      const {title, completed} = updatedTask;
-      axios.post('', {
-        title,
-        completed
-      })
-        .then(repsonse => this.tasks = [...this.tasks, response.data])
-        .catch(error => console.log(error))
-    }
   },
-  created() {
-    axios.get('')
-      .then(response => this.tasks = response.data)
-      .catch(error => console.log(error))
-  }
+  // created() {
+  //   axios.get('')
+  //     .then(response => this.tasks = response.data)
+  //     .catch(error => console.log(error))
+  // }
 }
 </script>
 
