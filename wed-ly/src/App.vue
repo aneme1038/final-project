@@ -66,7 +66,7 @@ export default {
         title,
         completed
       })
-        .then(repsonse => this.tasks = [...this.tasks, response.data])
+        .then(response => this.tasks = [...this.tasks, response.data])
         .catch(error => console.log(error))
     }
   },
