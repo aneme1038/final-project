@@ -11,6 +11,7 @@ const app = express();
 //========
 //Database
 //========
+const port = /*process.env.PORT || */3000;
 //Connect to database either heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -32,13 +33,13 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
-const tasks = require('./routes/tasks');
+const tasks = require('./controllers/tasks');
 //Allow use of Heroku's port or own local one
 app.use('/tasks', tasks);
-const port = process.env.PORT || 8080;
+
 
 
 //Listeners
 app.listen(port, () => {
-  console.log('Listening...');
+  console.log('Listening on port', port);
 })

@@ -1,12 +1,8 @@
 const express = require ('express');
-const mongodb = require('mongodb');
 const router = express.Router();
-const addTask = require('../../src/components/AddTask');
-const updateTask = require('../../src/components/UpdateTask');
-const tasks = require('../../src/components/Tasks');
 const Task = require('../models/tasks.js')
 //Get Request to seed database
-router.get('/task/seed', (req, res) => {
+router.get('/tasks/seed', (req, res) => {
   Task.create([
     {
       title: 'Venue',
@@ -36,7 +32,7 @@ router.get('/task/seed', (req, res) => {
   ], (error, data) => {
     console.log(error);
     console.log(data);
-    res.redirect('/')
+    res.redirect('/task')
   })
 })
 
@@ -60,15 +56,15 @@ router.get('/task/:id/', (req, res) => {
 })
 
 //Show individual Task Route
-router.get('/task/:id', (req, res) => {
-  Task.findById(req.params.id, (error, foundTask) => {
-    res.render(
-      tasks,
-      {
-        task: foundTask
-      }
-    )
-  })
-})
+// router.get('/task/:id', (req, res) => {
+//   Task.findById(req.params.id, (error, foundTask) => {
+//     res.render(
+//       tasks,
+//       {
+//         task: foundTask
+//       }
+//     )
+//   })
+// })
 
 module.exports = router;
