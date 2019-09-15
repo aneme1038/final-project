@@ -2,7 +2,8 @@ const express = require ('express');
 const router = express.Router();
 const Task = require('../models/tasks.js')
 //Get Request to seed database
-router.get('/tasks/seed', (req, res) => {
+router.get('/seed', (req, res) => {
+  console.log('hello');
   Task.create([
     {
       title: 'Venue',
@@ -32,14 +33,14 @@ router.get('/tasks/seed', (req, res) => {
   ], (error, data) => {
     console.log(error);
     console.log(data);
-    res.redirect('/task')
+    res.json(status: 200)
   })
 })
 
 //Post Request
 router.post('/task', (req, res) => {
   Task.create(req.body, (error, createdTask) => {
-    res.redirect('/task')
+    res.redirect('/')
   })
 })
 //Delete Request

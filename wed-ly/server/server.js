@@ -33,7 +33,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
-const tasks = require('./controllers/tasks');
+const tasks = require('./controllers/tasks.js');
 //Allow use of Heroku's port or own local one
 app.use('/tasks', tasks);
 
