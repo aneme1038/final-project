@@ -11,7 +11,7 @@ const app = express();
 //========
 //Database
 //========
-const port = /*process.env.PORT || */3000;
+const port = process.env.PORT || 3000;
 //Connect to database either heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
 
