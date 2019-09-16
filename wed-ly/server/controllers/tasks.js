@@ -33,39 +33,34 @@ router.get('/seed', (req, res) => {
   ], (error, data) => {
     console.log(error);
     console.log(data);
-    res.json(status: 200)
+    res.json(data)
   })
 })
 
 //Post Request
-router.post('/task', (req, res) => {
+router.post('/', (req, res) => {
   Task.create(req.body, (error, createdTask) => {
-    res.redirect('/')
+    res.json(createdTask)
   })
 })
 //Delete Request
-router.delete('/task/:id', (req, res) => {
-  Task.findByIdAndDelete(req.params.id, () => {
-    res.redirect('/task')
+router.delete('/:id', (req, res) => {
+  Task.findByIdAndDelete(req.params.id, (error, deletedTask) => {
+    res.json(deletedTask)
   })
 })
 //Put Request
-router.get('/task/:id/', (req, res) => {
+router.put('/task/:id/', (req, res) => {
   Task.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedTask) => {
-    res.redirect('/task')
+    res.json(updatedTask)
   })
 })
 
-//Show individual Task Route
-// router.get('/task/:id', (req, res) => {
-//   Task.findById(req.params.id, (error, foundTask) => {
-//     res.render(
-//       tasks,
-//       {
-//         task: foundTask
-//       }
-//     )
-//   })
-// })
+//Show Tasks
+router.get('/', (req, res) => {
+  Task.find({}, (error, foundTasks) => {
+    res.json(foundTasks)
+  })
+})
 
 module.exports = router;
