@@ -50,7 +50,7 @@ router.delete('/:id', (req, res) => {
   })
 })
 //Put Request
-router.put('/task/:id/', (req, res) => {
+router.put('/:id', (req, res) => {
   Task.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedTask) => {
     res.json(updatedTask)
   })
@@ -60,6 +60,13 @@ router.put('/task/:id/', (req, res) => {
 router.get('/', (req, res) => {
   Task.find({}, (error, foundTasks) => {
     res.json(foundTasks)
+  })
+})
+
+//show individual route
+router.get('/:id', (req, res) => {
+  Task.findById(req.params.id, (error, foundTask) => {
+    res.json(foundTask)
   })
 })
 
