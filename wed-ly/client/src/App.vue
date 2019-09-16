@@ -3,7 +3,7 @@
     <!--Import the various components -->
     <Header />
     <AddTask v-on:add-task="addTask" />
-    <UpdateTask v-on:update-task="updateTask" />
+    <!--<UpdateTask v-on:update-task="updateTask" />-->
     <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask"/>
   </div>
 </template>
@@ -12,7 +12,7 @@
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import UpdateTask from './components/UpdateTask';
+//import UpdateTask from './components/UpdateTask';
 import axios from 'axios';
 export default {
   name: 'app',
@@ -20,7 +20,7 @@ export default {
     Header,
     Tasks,
     AddTask,
-    UpdateTask
+    //UpdateTask
   },
   data() {
     return {

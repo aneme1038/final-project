@@ -63,4 +63,11 @@ router.get('/', (req, res) => {
   })
 })
 
+//show individual route
+router.get('/:id', (req, res) => {
+  Task.findById(req.params.id, (error, foundTask) => {
+    res.json(foundTask)
+  })
+})
+
 module.exports = router;
