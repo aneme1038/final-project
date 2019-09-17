@@ -61,6 +61,13 @@ export default {
 //         .catch(error => console.log(error))
 //     }
   },
+  mounted() {
+    console.log(axios.get('http://localhost:3000/tasks'))
+    axios.get('http://localhost:3000/tasks')
+      .then(response => this.tasks = response.data)
+      .catch(error => console.log(error))
+
+  },
   created() {
     axios.get('')
       .then(response => this.tasks = response.data)

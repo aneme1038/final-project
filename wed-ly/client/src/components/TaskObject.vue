@@ -3,19 +3,39 @@
     <!--Binding a class on the condition that the statement after the colon is true. If it is, apply the 'is-complete' class to the object -->
     <p>
       <input type="checkbox" v-on:change="completeTask">
-      {{task.title}}
-      <button @click="$emit('delete-task', task._id)" class="deleteBtn">X</button>
+      <h4>Category:</h4>
+        {{task.title}}
+      <h4>Description: </h4>
+        {{task.description}}
+      <h4>Completed:</h4>
+        {{task.isCompleted}}
+      <button @click="deleteTask(task, id)">X</button>
     </p>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: "TaskObject",
     props: ["task"],
+    data() {
+      return {
+        title: '',
+        description: '',
+        isCompleted: false,
+        id: ''
+      }
+    },
     methods: {
       completeTask() {
         this.task.taskCompleted = !this.task.taskCompleted;
+      },
+      deleteTask(task, id) {
+        // console.log('this');
+          axios.delete(`http://localhost:3000/${task.id}`)
+            .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
+            .catch(error => console.log(error))
       }
     }
   }
