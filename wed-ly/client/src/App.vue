@@ -2,57 +2,64 @@
   <div id="app">
     <!--Import the various components -->
     <Header />
-    <AddTask v-on:add-task="addTask" />
+    <!-- <AddTask v-on:add-task="addTask" /> -->
     <!--<UpdateTask v-on:update-task="updateTask" />-->
-    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask"/>
+    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask" />
   </div>
 </template>
 
 <script>
+// import Task from './components/Task';
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-//import UpdateTask from './components/UpdateTask';
+// import Requests from './requests.js';
+import { getTasks } from './axios';
+// import UpdateTask from './components/UpdateTask';
 import axios from 'axios';
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Header,
+    // Task
     Tasks,
     AddTask,
-    //UpdateTask
+    // UpdateTask
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      error: '',
+      text: ''
     }
   },
   methods: {
     deleteTask(id) {
-      // axios.delete('')
-        // .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
-        // .catch(error => console.log(error))
-        this.tasks = this.tasks.filter(task => task.id !== id);
+      axios.delete(`http://localhost:3000/${task._id}`)
+        .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
+        .catch(error => console.log(error))
+  //       this.tasks = this.tasks.filter(task => task.id !== id);
     },
     addTask(newTask) {
-      // const {title, completed} = newTask;
-      // axios.post('', {
-      //   title,
-      //   completed
-      // })
-      //   .then(response => this.tasks = [...this.tasks, response.data])
-      //   .catch(error => console.log(error))
-      this.tasks = [...this.tasks, newTask]
-    },
-    updateTask(updatedTask) {
-      const {title, completed} = updatedTask;
-      axios.post('', {
+      const {title, description, isCompleted} = newTask;
+      axios.post('http://localhost:3000/tasks/', {
         title,
-        completed
+        description,
+        isCompleted
       })
         .then(response => this.tasks = [...this.tasks, response.data])
         .catch(error => console.log(error))
-    }
+      this.tasks = [...this.tasks, newTask]
+    },
+//     updateTask(updatedTask) {
+//       const {title, completed} = updatedTask;
+//       axios.post('', {
+//         title,
+//         completed
+//       })
+//         .then(response => this.tasks = [...this.tasks, response.data])
+//         .catch(error => console.log(error))
+//     }
   },
   created() {
     axios.get('')
