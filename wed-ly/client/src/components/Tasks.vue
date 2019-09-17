@@ -1,8 +1,8 @@
 <template>
   <div>
     <!--Needs a unique key due to some lint error. Had to look this up. The key is for the individual id's and we have to bind it. Documentation found at https://vuejs.org/v2/guide/list.html -->
-    <div v-bind:key="task.id" v-for="task in tasks">
-      <TaskObject v-bind:task="task" v-on:delete-task="$emit('delete-task', task.id)"/>
+    <div v-bind:key="task._id" v-for="task in tasks">
+      <TaskObject v-bind:task="task" v-on:delete-task="$emit('delete-task', task._id)"/>
     </div>
   </div>
 </template>

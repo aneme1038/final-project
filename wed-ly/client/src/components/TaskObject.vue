@@ -4,7 +4,7 @@
     <p>
       <input type="checkbox" v-on:change="completeTask">
       {{task.title}}
-      <button @click="$emit('delete-task', task.id)" class="deleteBtn">X</button>
+      <button @click="$emit('delete-task', task._id)" class="deleteBtn">X</button>
     </p>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/tasks/seed'
+const baseUrl = 'http://localhost:3000/tasks/'
 
 class Requests {
   //Get Tasks
@@ -41,4 +41,4 @@ class Requests {
   }
 }
 
-export default Requests
+export default Requests;
