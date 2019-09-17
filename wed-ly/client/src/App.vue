@@ -13,7 +13,8 @@
 import Header from './components/layout/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import Requests from './requests.js';
+// import Requests from './requests.js';
+import { getTasks } from './axios';
 // import UpdateTask from './components/UpdateTask';
 import axios from 'axios';
 export default {
