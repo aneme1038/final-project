@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<!-- with no 'scoped' means this will apply to all files -->
+<!-- with no 'scoped' means this will apply to all files in project/client section/frontend -->
 
 <style>
   * {

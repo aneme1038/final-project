@@ -21,6 +21,6 @@
     props: ["tasks", "task"],
   }
 </script>
-
+<!-- 'scoped' means this will only apply to this file -->
 <style scoped>
 </style>

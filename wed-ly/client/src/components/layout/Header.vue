@@ -10,7 +10,7 @@
     name: "Header"
   }
 </script>
-
+<!-- 'scoped' means this will only apply to this file -->
 <style scoped>
   .title {
     font-size: 2.5em;
