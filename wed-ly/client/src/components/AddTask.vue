@@ -1,7 +1,8 @@
 <template>
   <div>
-    <form @submit="addTask">
-      <input type="text" v-model="title" name="title" placeholder="Add A Task" />
+    <form @submit="createTask">
+      <input type="text" v-model="title" name="title" placeholder="Category" />
+      <input type="text" v-model="description" name="description" placeholder="Task Description" />
       <input type="submit" value="Submit" class="btn">
     </form>
   </div>
@@ -10,24 +11,30 @@
 <script>
 //if you don't have backend, this uuid will create a unique id for entries on frontend
   import uuid from 'uuid';
+  import { createTask } from '../axios';
   export default {
     name: "AddTask",
     data() {
       return {
-        title: ''
+        title: '',
+        description: '',
+        isCompleted: ''
       }
     },
     methods: {
-      addTask(e) {
+      createTask(e, data) {
         e.preventDefault();
         const newTask = {
           id: uuid.v4(),
           title: this.title,
-          completed: false
+          description: this.description,
+          isCompleted: false
         }
         // Send up to App.vue by emitting an event
-        this.$emit('add-task', newTask);
+        this.$emit('create-task', newTask);
         this.title = '';
+        this.description = '';
+        this.isCompleted = '';
       }
     }
   }

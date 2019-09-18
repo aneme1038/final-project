@@ -1,6 +1,7 @@
 <template>
   <header class="header">
-    <h1>Wedding Checklist</h1>
+    <h1 class="title">Wed-Ly</h1>
+    <h2 class="subtitle">Personalized Wedding Checklist</h2>
   </header>
 </template>
 
@@ -11,10 +12,19 @@
 </script>
 
 <style scoped>
-  h1 {
+  .title {
+    font-size: 2.5em;
+    letter-spacing: 10px;
+    text-align: center;
+
   }
   header {
     background-color: #40312C;
     color: #F0F0F2;
+  }
+  .subtitle {
+    font-size: 1.5em;
+    letter-spacing: 10px;
+    text-align: center;
   }
 </style>

@@ -33,8 +33,8 @@
       },
       deleteTask(task, id) {
         // console.log('this');
-          axios.delete(`http://localhost:3000/${task.id}`)
-            .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
+          axios.delete(`http://localhost:3000/tasks/${task._id}`)
+            .then(response => this.tasks = this.tasks.filter(task => task._id !== id))
             .catch(error => console.log(error))
       }
     }
