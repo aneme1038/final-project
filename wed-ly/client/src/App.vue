@@ -2,9 +2,9 @@
   <div id="app">
     <!--Import the various components -->
     <Header />
-    <!-- <AddTask v-on:add-task="addTask" /> -->
+    <AddTask v-on:add-task="createTask" />
     <!--<UpdateTask v-on:update-task="updateTask" />-->
-    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask" />
+    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask(id)" />
   </div>
 </template>
 
@@ -15,6 +15,9 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 // import Requests from './requests.js';
 import { getTasks } from './axios';
+import { deleteTask } from './axios';
+import { createTask } from './axios';
+import { updateTask } from './axios';
 // import UpdateTask from './components/UpdateTask';
 import axios from 'axios';
 export default {
@@ -30,17 +33,20 @@ export default {
     return {
       tasks: [],
       error: '',
-      text: ''
+      text: '',
+      title: '',
+      description: '',
+      isCompleted: false
     }
   },
   methods: {
     deleteTask(id) {
-      axios.delete(`http://localhost:3000/${task._id}`)
+      axios.delete(`http://localhost:3000/tasks/${task._id}`)
         .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
         .catch(error => console.log(error))
   //       this.tasks = this.tasks.filter(task => task.id !== id);
     },
-    addTask(newTask) {
+    createTask(newTask) {
       const {title, description, isCompleted} = newTask;
       axios.post('http://localhost:3000/tasks/', {
         title,
@@ -76,7 +82,7 @@ export default {
 }
 </script>
 
-<!-- with no 'scoped' means this will apply to all files -->
+<!-- with no 'scoped' means this will apply to all files in project/client section/frontend -->
 
 <style>
   * {

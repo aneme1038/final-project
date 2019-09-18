@@ -1,40 +1,50 @@
 <template>
   <div>
-    <form @submit="addTask">
-      <input type="text" v-model="title" name="title" placeholder="Add A Task" />
-      <input type="submit" value="Submit" class="btn">
+    <form class="taskCreation" @submit="createTask">
+      <input class="titleInput" type="text" v-model="title" name="title" placeholder="Category" />
+      <input class="descInput" type="text" v-model="description" name="description" placeholder="Task Description" />
+      <input class="submitButton" type="submit" value="Submit" />
     </form>
   </div>
 </template>
 
 <script>
-//if you don't have backend, this uuid will create a unique id for entries on frontend
+//if you don't have a backend or entries do not have a unique id, this uuid will create a unique id for objects on frontend
   import uuid from 'uuid';
+  import { createTask } from '../axios';
   export default {
     name: "AddTask",
     data() {
       return {
-        title: ''
+        title: '',
+        description: '',
+        isCompleted: ''
       }
     },
     methods: {
-      addTask(e) {
+      createTask(e, data) {
         e.preventDefault();
         const newTask = {
           id: uuid.v4(),
           title: this.title,
-          completed: false
+          description: this.description,
+          isCompleted: false
         }
         // Send up to App.vue by emitting an event
-        this.$emit('add-task', newTask);
+        this.$emit('create-task', newTask);
         this.title = '';
+        this.description = '';
+        this.isCompleted = '';
       }
     }
   }
 </script>
 <!-- 'scoped' means this will only apply to this file -->
 <style scoped>
-  form {
+  .taskCreation {
     display: flex;
+    justify-content: center;
+    padding: 20px;
   }
+
 </style>
