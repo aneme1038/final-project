@@ -93,7 +93,7 @@ export default {
     font-family: Helvetica;
     line-height: 1.4;
   }
-  .btn {
+  .submitButton {
     background-color: #D9D1D0;
     color: #735F5D;
   }

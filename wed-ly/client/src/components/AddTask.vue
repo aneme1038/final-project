@@ -10,31 +10,30 @@
 
 <script>
 //if you don't have a backend or entries do not have a unique id, this uuid will create a unique id for objects on frontend
-  import uuid from 'uuid';
+  // import uuid from 'uuid';
   import { createTask } from '../axios';
   export default {
     name: "AddTask",
     data() {
       return {
         title: '',
-        description: '',
-        isCompleted: ''
+        description: ''
       }
     },
     methods: {
       createTask(e, data) {
         e.preventDefault();
         const newTask = {
-          id: uuid.v4(),
+          // id: uuid.v4(),
           title: this.title,
           description: this.description,
           isCompleted: false
         }
         // Send up to App.vue by emitting an event
         this.$emit('create-task', newTask);
-        this.title = '';
-        this.description = '';
-        this.isCompleted = '';
+        title = this.title,
+        description = this.description,
+        isCompleted = false
       }
     }
   }

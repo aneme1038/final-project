@@ -1,5 +1,5 @@
 <template>
-  <div class="task-object" v-bind:key="task._id" v-bind:class="{'task-complete':task.taskCompleted}">
+  <div class="task-object" v-bind:key="task._id" v-bind:class="{'task-complete':task.isCompleted}">
     <!--Binding a class on the condition that the statement after the colon is true. If it is, apply the 'is-complete' class to the object -->
     <p>
       <input type="checkbox" v-on:change="completeTask">
@@ -29,7 +29,7 @@
     },
     methods: {
       completeTask() {
-        this.task.taskCompleted = !this.task.taskCompleted;
+        this.task.isCompleted = !this.task.isCompleted;
       },
       deleteTask(task, id) {
         // console.log('this');
