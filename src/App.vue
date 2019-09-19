@@ -68,10 +68,11 @@ export default {
 //     }
   },
   mounted() {
-    console.log(axios.get('https://wed-ly.herokuapp.com/tasks'))
-    axios.get('https://wed-ly.herokuapp.com/tasks')
-      .then(response => this.tasks = response.data)
-      .catch(error => console.log(error))
+    console.log(getTasks())
+    // axios.get()
+    //   .then(response => this.tasks = response.data)
+    //   .catch(error => console.log(error))
+    getTasks();
 
   },
   created() {
