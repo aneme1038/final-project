@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'http://localhost:3000';
+const url = 'https://wed-ly.herokuapp.com/';
 
 export function getTasks() {
   return axios.get(`${url}/tasks`)

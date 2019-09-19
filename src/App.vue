@@ -68,8 +68,8 @@ export default {
 //     }
   },
   mounted() {
-    console.log(axios.get('http://localhost:3000/tasks'))
-    axios.get('http://localhost:3000/tasks')
+    console.log(axios.get('http://http://wed-ly.herokuapp.com'))
+    axios.get('http://wed-ly.herokuapp.com/')
       .then(response => this.tasks = response.data)
       .catch(error => console.log(error))
 
