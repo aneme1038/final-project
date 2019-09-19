@@ -41,14 +41,14 @@ export default {
   },
   methods: {
     deleteTask(id) {
-      axios.delete(`http://localhost:3000/tasks/${task._id}`)
+      axios.delete(`http://wed-ly.herokuapp.com/tasks/${task._id}`)
         .then(response => this.tasks = this.tasks.filter(task => task.id !== id))
         .catch(error => console.log(error))
   //       this.tasks = this.tasks.filter(task => task.id !== id);
     },
     createTask(newTask) {
       const {title, description, isCompleted} = newTask;
-      axios.post('http://localhost:3000/tasks/', {
+      axios.post('https://wed-ly.herokuapp.com/tasks', {
         title,
         description,
         isCompleted
