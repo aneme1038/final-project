@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const db = mongoose.connection;
 const app = express();
+require ('dotenv').config()
 //========
 //Database
 //========
@@ -34,7 +35,7 @@ app.use(bodyparser.json());
 app.use(cors());
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
-app.use(serveStatic(__dirname + "/dist"));
+app.use('/', serveStatic(__dirname + "/dist"));
 
 const tasks = require('./controllers/tasks.js');
 //Allow use of Heroku's port or own local one
