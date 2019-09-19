@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://wed-ly.herokuapp.com/';
+const url = 'https://wed-ly.herokuapp.com';
 
 export function getTasks() {
   return axios.get(`${url}/tasks`)
