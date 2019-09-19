@@ -1,0 +1,65 @@
+[debug] [2019-09-19T20:43:33.242Z] ----------------------------------------------------------------------
+[debug] [2019-09-19T20:43:33.244Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2019-09-19T20:43:33.244Z] CLI Version:   7.3.2
+[debug] [2019-09-19T20:43:33.244Z] Platform:      darwin
+[debug] [2019-09-19T20:43:33.244Z] Node Version:  v10.16.3
+[debug] [2019-09-19T20:43:33.244Z] Time:          Thu Sep 19 2019 16:43:33 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-09-19T20:43:33.244Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-09-19T20:43:33.249Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-09-19T20:43:33.249Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/neme/Desktop/dev/repos/final-project
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2019-09-19T20:44:06.615Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2019-09-19T20:44:07.187Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-19T20:44:07.190Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7959322136498592932  
+ 
+[debug] [2019-09-19T20:44:07.698Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-19T20:44:08.199Z] [Project Creation Poller] Retrying task index 0
+[debug] [2019-09-19T20:44:08.200Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7959322136498592932  
+ 
+[debug] [2019-09-19T20:44:08.683Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-19T20:44:09.685Z] [Project Creation Poller] Retrying task index 0
+[debug] [2019-09-19T20:44:09.686Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7959322136498592932  
+ 
+[debug] [2019-09-19T20:44:10.156Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-19T20:44:12.159Z] [Project Creation Poller] Retrying task index 0
+[debug] [2019-09-19T20:44:12.160Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7959322136498592932  
+ 
+[debug] [2019-09-19T20:44:12.609Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-19T20:44:12.610Z] >>> HTTP REQUEST POST https://firebase.googleapis.com/v1beta1/projects/aneme-final:addFirebase  
+ 
+[debug] [2019-09-19T20:44:12.973Z] <<< HTTP RESPONSE 403
+[debug] [2019-09-19T20:44:12.973Z] <<< HTTP RESPONSE BODY
+[debug] [2019-09-19T20:44:12.974Z] HTTP Error: 403, The caller does not have permission
+[debug] [2019-09-19T20:44:13.193Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:39:35)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1161:10)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1083:12)
+    at Object.onceWrapper (events.js:286:20)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.
