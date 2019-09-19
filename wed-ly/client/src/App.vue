@@ -23,6 +23,7 @@ import axios from 'axios';
 export default {
   name: 'App',
   components: {
+    //add each component file 
     Header,
     // Task
     Tasks,
