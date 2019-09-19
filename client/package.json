@@ -2,15 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "10.16.3"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-scli-service lint",
-    "postinstall": "npm run build",
-    "start": "node '../server/server.js'",
+    "lint": "vue-scli-service lint"
   },
   "dependencies": {
     "axios": "^0.19.0",
