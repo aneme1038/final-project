@@ -6,7 +6,6 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const path = require('path');
 const serveStatic = require('serve-static');
-const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const db = mongoose.connection;
