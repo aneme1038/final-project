@@ -1,7 +1,9 @@
 <template>
   <header class="header">
-    <h1 class="title">Wed-Ly</h1>
-    <h2 class="subtitle">Personalized Wedding Checklist</h2>
+    <div class="headerText">
+      <h1 class="title">Wed-Ly</h1>
+      <h2 class="subtitle">Personalized Wedding Checklist</h2>
+    </div>
   </header>
 </template>
 
@@ -12,18 +14,27 @@
 </script>
 <!-- 'scoped' means this will only apply to this file -->
 <style scoped>
+  .headerText {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
   .title {
-    font-size: 2.5em;
+    margin-top: 7em;
     letter-spacing: 10px;
     text-align: center;
 
   }
   header {
     background-color: #40312C;
-    color: #F0F0F2;
+    color: #F0EFF2;
+    background-image: url('http://www.luxeeventsvancouver.ca/wp-content/uploads/2016/01/mobile-home-banner.jpg');
+    background-size: cover;
+    height: 25em;
   }
   .subtitle {
-    font-size: 1.5em;
     letter-spacing: 10px;
     text-align: center;
   }

@@ -4,7 +4,9 @@
     <Header />
     <AddTask v-on:add-task="createTask" />
     <!--<UpdateTask v-on:update-task="updateTask" />-->
-    <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask(id)" />
+    <div class="taskContainer">
+      <Tasks v-bind:tasks="tasks" v-on:delete-task="deleteTask(id)" />
+    </div>
   </div>
 </template>
 
@@ -85,16 +87,24 @@ export default {
 <!-- with no 'scoped' means this will apply to all files in project/client section/frontend -->
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
   * {
     margin: 0;
     padding: 0;
   }
   body {
-    font-family: Helvetica;
+    font-family: 'Dancing Script', cursive;
     line-height: 1.4;
+
+
   }
   .submitButton {
     background-color: #D9D1D0;
     color: #735F5D;
+  }
+  .taskContainer {
+    margin: 20px;
+    background-image: url('./assets/rungs.jpg');
+    background-repeat: repeat-y;
   }
 </style>

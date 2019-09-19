@@ -3,7 +3,7 @@
     <form class="taskCreation" @submit="createTask">
       <input class="titleInput" type="text" v-model="title" name="title" placeholder="Category" />
       <input class="descInput" type="text" v-model="description" name="description" placeholder="Task Description" />
-      <input class="submitButton" type="submit" value="Submit" />
+      <input class="submitButton" type="submit" value="Add" />
     </form>
   </div>
 </template>
@@ -43,7 +43,26 @@
   .taskCreation {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 100px;
+    background-color: #1D1D1D;
   }
-
+  .titleInput, .descInput {
+    font-size: 1em;
+    text-align: center;
+  }
+  .titleInput {
+    background-color: pink;
+  }
+  .descInput {
+    background-color: lightgreen;
+  }
+  .submitButton {
+    width: 100px;
+    height: 50px;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
 </style>

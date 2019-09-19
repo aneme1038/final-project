@@ -2,14 +2,15 @@
   <div class="task-object" v-bind:key="task._id" v-bind:class="{'task-complete':task.isCompleted}">
     <!--Binding a class on the condition that the statement after the colon is true. If it is, apply the 'is-complete' class to the object -->
     <p>
-      <input type="checkbox" v-on:change="completeTask">
-      <h4>Category:</h4>
+      <input class="checkbox" type="checkbox" v-on:change="completeTask">
+      <!-- <h4 class="categoryHead">Category:</h4> -->
         {{task.title}}
-      <h4>Description: </h4>
+        ----
+      <!-- <h4 class="descriptionHead">Description: </h4> -->
         {{task.description}}
-      <h4>Completed:</h4>
-        {{task.isCompleted}}
-      <button @click="deleteTask(task, id)">X</button>
+      <!-- <h4 class="completedHead">Completed:</h4> -->
+
+      <button class="deleteBtn" @click="deleteTask(task, id)">X</button>
     </p>
   </div>
 </template>
@@ -43,16 +44,26 @@
 <!-- This scoped styling is limited to this file only -->
 <style scoped>
   .task-object {
-    padding: 15px;
-    border: 1.25px #cdc double;
+    flex-wrap: wrap;
+    font-size: 1.5em;
+    padding: 10px;
+    border-bottom: 2px #3F312B solid;
+    margin: 5px;
   }
   .task-complete {
     text-decoration: line-through;
   }
   .deleteBtn {
-    border-radius: 100%;
+    width: 2em;
+    height: 2em;
+    font-size: 0.7em;
     background-color: #ddc;
     float: right;
     cursor: pointer;
+  }
+  .categoryHead, .descriptionHead, .completedHead {
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 1.2em;
   }
 </style>
