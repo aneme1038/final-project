@@ -33,8 +33,7 @@
         this.task.isCompleted = !this.task.isCompleted;
       },
       deleteTask(task, id) {
-        // console.log('this');
-          axios.delete(`http://localhost:3000/tasks/${task._id}`)
+          axios.delete(`http://wed-ly.herokuapp.com/tasks/${task._id}`)
             .then(response => this.tasks = this.tasks.filter(task => task._id !== id))
             .catch(error => console.log(error))
       }
