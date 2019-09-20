@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="taskCreation" @submit="createTask">
+    <form class="taskCreation" action="https://wed-ly.herokuapp.com/tasks/" @submit="createTask(title)" method="post">
       <input class="titleInput" type="text" v-model="title" name="title" placeholder="Category" />
       <input class="descInput" type="text" v-model="description" name="description" placeholder="Task Description" />
       <input class="submitButton" type="submit" value="Add" />
@@ -17,23 +17,30 @@
     data() {
       return {
         title: '',
-        description: ''
+        description: '',
+        isCompleted: false
       }
     },
     methods: {
-      createTask(e, data) {
+      createTask(e) {
+        console.log('this is triggering')
         e.preventDefault();
+        const title = this.title;
+        const description = this.description;
+        const isCompleted = false;
         const newTask = {
           // id: uuid.v4(),
-          title: this.title,
-          description: this.description,
-          isCompleted: false
-        }
+          title: title,
+          description: description,
+          isCompleted: isCompleted
+        };
+        console.log(this.title)
         // Send up to App.vue by emitting an event
         this.$emit('create-task', newTask);
         title = this.title,
         description = this.description,
         isCompleted = false
+
       }
     }
   }
@@ -58,6 +65,7 @@
   }
   .descInput {
     background-color: lightgreen;
+    width: 300px;
   }
   .submitButton {
     width: 100px;
